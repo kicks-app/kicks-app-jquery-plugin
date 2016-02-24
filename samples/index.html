@@ -19,15 +19,21 @@
       <div class="page-header">
         <h1>Example</h1>
       </div>
-
-      <div class="plugin"> </div>
-      
+      <h2 class="plugin">Hello World!</h2>
+      <button>Click Me!</button>
     </div>
   
     <script>
       $('.plugin').plugin({
         // Example options
+        foo: 'Foo'
+      }).each(function() {
+        $(this).next('button').on('click', function(e) {
+          $(this).prev('.plugin').plugin('foo', 'Bar');
+        });
       });
+      
+      
     </script>
   </body>
 </html>
